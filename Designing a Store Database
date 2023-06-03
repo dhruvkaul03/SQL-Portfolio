@@ -1,10 +1,10 @@
 CREATE TABLE clothing_store (
-        id INTEGER PRIMARY KEY, 
-        category TEXT, brand TEXT, 
-        price INTEGER, 
-        quantity INTEGER, 
-        availability TEXT
-        );
+    id INTEGER PRIMARY KEY, 
+    category TEXT, brand TEXT, 
+    price INTEGER, 
+    quantity INTEGER, 
+    availability TEXT
+    );
 
 INSERT INTO clothing_store VALUES (1, "Shirts", "Nike", 15.99, 100, "In-Stock");
 INSERT INTO clothing_store VALUES (2, "Sweatpants", "Adidas", 25.99, 56, "In-Stock");
