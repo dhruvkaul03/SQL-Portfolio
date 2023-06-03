@@ -1,0 +1,23 @@
+CREATE TABLE clothing_store (id INTEGER PRIMARY KEY, category TEXT, brand TEXT, price INTEGER, quantity INTEGER, availability TEXT);
+
+INSERT INTO clothing_store VALUES (1, "Shirts", "Nike", 15.99, 100, "In-Stock");
+INSERT INTO clothing_store VALUES (2, "Sweatpants", "Adidas", 25.99, 56, "In-Stock");
+INSERT INTO clothing_store VALUES (3, "Shorts", "Nike", 12.99, 84, "In-Stock");
+INSERT INTO clothing_store VALUES (4, "Blazer", "Brioni", 54.99, 0, "Out of Stock");
+INSERT INTO clothing_store VALUES (5, "Jeans", "Levi's", 34.99, 35, "In-Stock");
+INSERT INTO clothing_store VALUES (6, "Socks", "Nike", 9.99, 80, "In-Stock");
+INSERT INTO clothing_store VALUES (7, "Jackets", "Adidas", 19.99, 0, "Out of Stock");
+INSERT INTO clothing_store VALUES (8, "Underwear", "Jockey", 14.99, 50, "In-Stock");
+INSERT INTO clothing_store VALUES (9, "Gloves", "Nike", 8.99, 25, "In-Stock");
+INSERT INTO clothing_store VALUES (10, "Hats", "Borsalino", 11.99, 19, "In-Stock");
+INSERT INTO clothing_store VALUES (11, "Swim-Trunks", "Speedo", 14.99, 0, "Out of Stock");
+INSERT INTO clothing_store VALUES (12, "Hoodies", "Adidas", 39.99, 15, "In-Stock");
+INSERT INTO clothing_store VALUES (13, "Sweaters", "Vogue", 10.99, 13, "In-Stock");
+INSERT INTO clothing_store VALUES (14, "Dresses", "Carolina Herrera", 69.99, 0, "Out of Stock");
+INSERT INTO clothing_store VALUES (15, "Shoes", "Timberlands", 99.99, 19, "In-Stock");
+
+SELECT * FROM clothing_store WHERE availability = "In-Stock" ORDER BY price;
+
+SELECT MIN(price) FROM clothing_store;
+SELECT MAX(price) FROM clothing_store;
+SELECT brand, COUNT(brand) FROM clothing_store GROUP BY brand;
