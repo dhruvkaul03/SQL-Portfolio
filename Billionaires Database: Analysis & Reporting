@@ -1,0 +1,44 @@
+CREATE TABLE billionaires (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    full_name TEXT,
+    age INTEGER,
+    marital_status TEXT,
+    company TEXT);
+    
+INSERT INTO billionaires (full_name, age, marital_status, company) VALUES ("Elon Musk", 51, "Not-Married", "Tesla");
+INSERT INTO billionaires (full_name, age, marital_status, company) VALUES ("Jeff Bezos", NULL, "Not-Married", "Amazon");
+INSERT INTO billionaires (full_name, age, marital_status, company) VALUES ("Larry Ellison", 78, "Not-Married", "Oracle");
+INSERT INTO billionaires (full_name, age, marital_status, company) VALUES ("Warren Buffet", 92, "Married", "Berkshire Hathaway");
+INSERT INTO billionaires (full_name, age, marital_status, company) VALUES ("Bill Gates", 67, "Not-Married", "Microsoft");
+    
+CREATE TABLE money (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    billionaire_id INTEGER,
+    net_worth TEXT);
+    
+INSERT INTO money (billionaire_id, net_worth) VALUES (1, "226.4 Billion");
+INSERT INTO money (billionaire_id, net_worth) VALUES (2, "146.2 Billion");
+INSERT INTO money (billionaire_id, net_worth) VALUES (3, "138.3 Billion");
+INSERT INTO money (billionaire_id, net_worth)VALUES (4, "117.1 Billion");
+INSERT INTO money (billionaire_id, net_worth) VALUES (5, "115.2 Billion");
+
+/* Join the two tables so we can see each billionaires name and net worth */ 
+
+SELECT billionaires.full_name, money.net_worth
+FROM billionaires
+LEFT OUTER JOIN money
+ON billionaires.id = money.billionaire_id;
+
+/* Join the tables so we can see each billionaires name, age, and net worth, regardless of if they have any missing values */
+
+SELECT billionaires.full_name, billionaires.age, money.net_worth
+FROM billionaires
+LEFT OUTER JOIN money
+ON billionaires.id = money.billionaire_id;
+
+/* Calculate the number of billionaires in each marital status category */
+
+SELECT marital_status, COUNT(*) AS count
+FROM billionaires
+GROUP BY marital_status;
+    
